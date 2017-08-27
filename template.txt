@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>{TITLE}</title>
+</head>
+
+<body bgcolor="#222" text="#eee" link="#3F51B5" vlink="#3F51B5"> 
+<center>
+<h1>danieljon.es</h1>
+<a href="/">index</a> <a href="/blog/1.html">blog</a> <a href="/portfolio.html">portfolio</a> </font> <br /> <br />
+<a href="https://reddit.com/u/daniel_j-">reddit</a>
+<a href="http://steamcommunity.com/id/imnotstraightatall/">steam</a>
+<a href="https://github.com/daniel-Jones">github</a>
+<h1>{INFO}</h1>
+</center>
+{CONTENT}
+<center><br /><font size="2"> page generated on {TIME} </font></center>
+</body>
+</html>
