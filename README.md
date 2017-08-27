@@ -3,7 +3,7 @@ static site generator for my website/blog/portfolio at https://danieljon.es
 # why?
 My website previously relied heavily on php/databases and didn't render correctly inside my terminal web browser so I decided to take the static, html only route and created a static website generator.
 # how do I use it?
-This script is really _really_ optimised for _my_ setup. to use it in its default state you need ot do the following:
+This script is really _really_ optimised for _my_ setup. to use it in its default state you need to do the following:
 
 modify template.txt to your liking, this is used on EVERY page
 
