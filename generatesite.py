@@ -41,9 +41,9 @@ def generatepagebar(currentpage, pagecount):
     pages = "<center>page ";
     for x in range(1, int(pagecount)+1):
         if x == int(currentpage):
-            pages += "<strong><i><a href=" + str(x) + ".html>" + str(x) + "</a></i></strong> ";
+            pages += "<strong><i><a href=" + str(x) + ">" + str(x) + "</a></i></strong> ";
         else: 
-            pages += "<a href=" + str(x) + ".html>" + str(x) + "</a> ";
+            pages += "<a href=" + str(x) + ">" + str(x) + "</a> ";
     pages += "</center>";
     return pages;
 
@@ -110,14 +110,16 @@ def generateblog():
     count = 1;
     cpage = 1;
     page = "";
+    total_count = postcount;
     # count from 1 - perpage, add perpage to count, count from count - count + perpage
     while count < postcount + 1:
         for x in range(count, count + int(perpage)):
             if count < postcount + 1:
                 with open(blogsrc + "/final/" + str(x) + ".txt") as contentfile:
-                    content = contentfile.read().replace('\n', '');
-                    page += content + "<hr>";
+                    content = contentfile.read();
+                    page += "#" + str(total_count) + content + "<hr>";
                     count += 1;
+                    total_count -= 1;
         if cpage <= pagecount:
             page += generatepagebar(str(cpage), str(int(pagecount)));
             page = generatepagebar(str(cpage), str(int(pagecount))) + page;
