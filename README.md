@@ -18,3 +18,20 @@ create directory content/blog
 create blog posts in content/blog, 1.txt is the OLDEST post.
 
 It's all just .txt files, you can add html/js to them.
+
+# settigns.cfg?
+This file contains various settings you cna change including the number of blog posts per page, titles, content locations, blog directory etc. Play with these if you want.
+
+#.htaccess for blog?
+I use the following as my .htaccees for /blog, it makes /blog go to blog/1, /1 translates to 1.html etc:
+
+```
+Options +SymLinksIfOwnerMatch
+Order Allow,Deny
+Allow from all
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([A-Za-z0-9-]+)/?$ $1.html [NC,QSA]
+DirectoryIndex 1.html
+```
