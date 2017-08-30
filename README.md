@@ -22,7 +22,7 @@ It's all just .txt files, you can add html/js to them.
 # settigns.cfg?
 This file contains various settings you cna change including the number of blog posts per page, titles, content locations, blog directory etc. Play with these if you want.
 
-#.htaccess for blog?
+# .htaccess for blog?
 I use the following as my .htaccees for /blog, it makes /blog go to blog/1, /1 translates to 1.html etc:
 
 ```
