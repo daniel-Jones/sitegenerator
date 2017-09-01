@@ -19,7 +19,7 @@ create blog posts in content/blog, 1.txt is the OLDEST post.
 
 It's all just .txt files, you can add html/js to them.
 
-# settigns.cfg?
+# settings.cfg?
 This file contains various settings you cna change including the number of blog posts per page, titles, content locations, blog directory etc. Play with these if you want.
 
 # .htaccess for blog?
