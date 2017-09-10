@@ -7,6 +7,14 @@
 <meta name="author" content="Daniel Jones">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{TITLE}</title>
+<style>
+img
+{
+	max-width: 100%;
+	max-height: 100%;
+	overflow: hidden;
+}
+</style>
 </head>
 
 <body bgcolor="#222" text="#eee" link="#3F51B5" vlink="#3F51B5"> 
