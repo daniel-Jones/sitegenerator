@@ -32,7 +32,7 @@ def generateindex():
     with open(indexsrc, "r") as contentfile:
         content = contentfile.read().replace('\n', '');
     replace(outdir + "/index.html", "{TITLE}", cfg.get("index", "title"));
-    replace(outdir + "/index.html", "{INFO}", "Index");
+    replace(outdir + "/index.html", "{INFO}", cfg.get("index", "header"));
     replace(outdir + "/index.html", "{CONTENT}", content);
     replace(outdir + "/index.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
 
@@ -56,7 +56,7 @@ def generateportfolio():
     with open(portfoliosrc, "r") as contentfile:
         content = contentfile.read().replace('\n', '');
     replace(outdir + "/portfolio.html", "{TITLE}", cfg.get("portfolio", "title"));
-    replace(outdir + "/portfolio.html", "{INFO}", "Portfolio");
+    replace(outdir + "/portfolio.html", "{INFO}", cfg.get("portfolio", "header"));
     replace(outdir + "/portfolio.html", "{CONTENT}", content);
     replace(outdir + "/portfolio.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
 
@@ -104,7 +104,7 @@ def generateblog():
         with open(outdir + "/" + blogdir + "/" + str(x) + ".html", "r") as contentfile:
             content = contentfile.read().replace('\n', '');
         replace(outdir + "/" + blogdir + "/" + str(x) + ".html", "{TITLE}", cfg.get("blog", "title"));
-        replace(outdir + "/" + blogdir + "/" + str(x) + ".html", "{INFO}", "Blog");
+        replace(outdir + "/" + blogdir + "/" + str(x) + ".html", "{INFO}", cfg.get("blog", "header"));
         replace(outdir + "/" + blogdir + "/" + str(x) + ".html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
     # place blog posts into their pages
     count = 1;
