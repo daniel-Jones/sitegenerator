@@ -30,7 +30,7 @@ def generateindex():
     print("generating {}/index.html from {}".format(outdir, indexsrc));
     copyfile(template, outdir + "/index.html");
     with open(indexsrc, "r") as contentfile:
-        content = contentfile.read().replace('\n', '');
+        content = contentfile.read();
     replace(outdir + "/index.html", "{TITLE}", cfg.get("index", "title"));
     replace(outdir + "/index.html", "{INFO}", cfg.get("index", "header"));
     replace(outdir + "/index.html", "{CONTENT}", content);
@@ -54,7 +54,7 @@ def generateportfolio():
     print("generating {}/portfolio.html from {}".format(outdir, portfoliosrc));
     copyfile(template, outdir + "/portfolio.html");
     with open(portfoliosrc, "r") as contentfile:
-        content = contentfile.read().replace('\n', '');
+        content = contentfile.read();
     replace(outdir + "/portfolio.html", "{TITLE}", cfg.get("portfolio", "title"));
     replace(outdir + "/portfolio.html", "{INFO}", cfg.get("portfolio", "header"));
     replace(outdir + "/portfolio.html", "{CONTENT}", content);
