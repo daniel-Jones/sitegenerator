@@ -117,7 +117,7 @@ def generateblog():
             if count < postcount + 1:
                 with open(blogsrc + "/final/" + str(x) + ".txt") as contentfile:
                     content = contentfile.read();
-                    page += "#" + str(total_count) + content + "<hr>";
+                    page += "<div id='" + str(total_count) + "'> <a href='" + str(cpage) + ".html#" + str(total_count) + "' name='" + str(total_count) + "'>#" + str(total_count) + "</a>" + content + "<hr>";
                     count += 1;
                     total_count -= 1;
         if cpage <= pagecount:
