@@ -22,7 +22,7 @@ img
 <h1>danieljon.es</h1>
 <a href="/">index</a> <a href="/blog">blog</a> <a href="/portfolio.html">portfolio</a> </font> <br /> <br />
 <a href="https://reddit.com/u/daniel_j-">reddit</a>
-<a href="http://steamcommunity.com/id/imnotstraightatall/">steam</a>
+<a href="https://steamcommunity.com/id/imnotstraightatall/">steam</a>
 <a href="https://github.com/daniel-Jones">github</a>
 {INFO}
 </center>
