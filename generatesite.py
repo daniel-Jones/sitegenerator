@@ -38,13 +38,13 @@ def generateindex():
 
 def generatepagebar(currentpage, pagecount):
     print("generating page bar for {} total {}".format(currentpage, pagecount));
-    pages = "<center>page ";
+    pages = "<div class='middle'>page ";
     for x in range(1, int(pagecount)+1):
         if x == int(currentpage):
             pages += "<strong><i><a href=" + str(x) + ">" + str(x) + "</a></i></strong> ";
         else: 
             pages += "<a href=" + str(x) + ">" + str(x) + "</a> ";
-    pages += "</center>";
+    pages += "</div>";
     return pages;
 
 def generateportfolio():
@@ -117,7 +117,7 @@ def generateblog():
             if count < postcount + 1:
                 with open(blogsrc + "/final/" + str(x) + ".txt") as contentfile:
                     content = contentfile.read();
-                    page += "<div id='" + str(total_count) + "'> <a href='" + str(cpage) + ".html#" + str(total_count) + "' name='" + str(total_count) + "'>#" + str(total_count) + "</a>" + content + "<hr>";
+                    page += "<div id='" + str(total_count) + "'> <a href='" + str(cpage) + ".html#" + str(total_count) + "'>#" + str(total_count) + "</a>" + content + "</div><hr>";
                     count += 1;
                     total_count -= 1;
         if cpage <= pagecount:
