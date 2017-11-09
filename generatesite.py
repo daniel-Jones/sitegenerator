@@ -132,63 +132,20 @@ def generateblog():
             print(t.read());
     '''
 
-def generateshows():
-    cpage = 0;
+def generateanime():
     template = cfg.get("output", "template");
     outdir = cfg.get("output", "dir");
-    blogdir = cfg.get("shows", "dir");
-    blogsrc = cfg.get("shows", "srcdir");
-    perpage = cfg.get("shows", "perpage");
-    print("generating {}/{}/ from directory /{}/final".format(outdir, blogdir, blogsrc));
-    os.makedirs(outdir + "/" + blogdir, exist_ok=True);
-    os.makedirs(blogsrc + "/final", exist_ok=True);
-   # number of blog posts
-    postcount = len(glob.glob1(blogsrc, "*.txt"));
-    pagecount = postcount/int(perpage)+1;
-    print("{} posts, {} per page = {} pages".format(postcount, perpage, int(pagecount)));
-    folder = outdir + "/" + blogdir;
-    # delete generated blog files
-    deletefiles(outdir + "/" + blogdir);
-    # delete renamed blog files
-    deletefiles(blogsrc + "/final");
-    '''
-    copy our blog posts to blogsrc/final, rename them, 60 becomes 1, 59 becomes 2 etc
-    this is done because I am extremely lazy and had troubles doing it any other way.
-    sorry if you're reading this.
-    '''
-    #integrate this with the loop below it?
-    count = 1;
-    for x in range(int(postcount), 0, -1):
-        copyfile(blogsrc + "/" + str(x) + ".txt", blogsrc + "/final/" + str(count) + ".txt");
-        count += 1;
-    # generate pages
-    for x in range(1, int(pagecount) + 1):
-        copyfile(template, outdir + "/" + blogdir + "/" + str(x) + ".html");
-        with open(outdir + "/" + blogdir + "/" + str(x) + ".html", "r") as contentfile:
-            content = contentfile.read().replace('\n', '');
-        replace(outdir + "/" + blogdir + "/" + str(x) + ".html", "{TITLE}", cfg.get("blog", "title"));
-        replace(outdir + "/" + blogdir + "/" + str(x) + ".html", "{INFO}", "Blog");
-        replace(outdir + "/" + blogdir + "/" + str(x) + ".html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
-    # place blog posts into their pages
-    count = 1;
-    cpage = 1;
-    page = "";
-    total_count = postcount;
-    # count from 1 - perpage, add perpage to count, count from count - count + perpage
-    while count < postcount + 1:
-        for x in range(count, count + int(perpage)):
-            if count < postcount + 1:
-                with open(blogsrc + "/final/" + str(x) + ".txt") as contentfile:
-                    content = contentfile.read();
-                    page += "#" + str(total_count) + content + "<hr>";
-                    count += 1;
-                    total_count -= 1;
-        if cpage <= pagecount:
-            page += generatepagebar(str(cpage), str(int(pagecount)));
-            page = generatepagebar(str(cpage), str(int(pagecount))) + page;
-            replace(outdir + "/" + blogdir + "/" + str(cpage) + ".html", "{CONTENT}", page);
-        page = "";
-        cpage += 1;
+    animesrc = cfg.get("anime", "src");
+    animedir = cfg.get("anime", "dir");
+    print("generating {}/index.html from {}".format(outdir, animesrc));
+    copyfile(template, outdir + "/" + animedir + "/index.html");
+    with open(animesrc, "r") as contentfile:
+        content = contentfile.read();
+    replace(outdir + "/" + animedir + "/index.html", "{TITLE}", cfg.get("anime", "title"));
+    replace(outdir + "/" + animedir + "/index.html", "{INFO}", cfg.get("anime", "header"));
+    replace(outdir + "/" + animedir + "/index.html", "{CONTENT}", content);
+    replace(outdir + "/" + animedir + "/index.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+
 
 if __name__ == "__main__":
     cfg = configparser.ConfigParser();
@@ -197,4 +154,4 @@ if __name__ == "__main__":
     generateindex();
     generateblog();
     generateportfolio();
-    #generateshows();
+    generateanime();
