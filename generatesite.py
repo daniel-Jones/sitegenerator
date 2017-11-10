@@ -137,7 +137,7 @@ def generateanime():
     outdir = cfg.get("output", "dir");
     animesrc = cfg.get("anime", "src");
     animedir = cfg.get("anime", "dir");
-    print("generating {}/index.html from {}".format(outdir, animesrc));
+    print("generating {}/{}/index.html from {}".format(outdir, animedir, animesrc));
     copyfile(template, outdir + "/" + animedir + "/index.html");
     with open(animesrc, "r") as contentfile:
         content = contentfile.read();
