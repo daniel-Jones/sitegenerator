@@ -146,12 +146,26 @@ def generateanime():
     replace(outdir + "/" + animedir + "/index.html", "{CONTENT}", content);
     replace(outdir + "/" + animedir + "/index.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
 
+def generatewaifus():
+    template = cfg.get("output", "template");
+    outdir = cfg.get("output", "dir");
+    waifussrc = cfg.get("waifus", "src");
+    waifusdir = cfg.get("waifus", "dir");
+    print("generating {}/{}/index.html from {}".format(outdir, waifusdir, waifussrc));
+    copyfile(template, outdir + "/" + waifusdir + "/index.html");
+    with open(waifussrc, "r") as contentfile:
+        content = contentfile.read();
+    replace(outdir + "/" + waifusdir + "/index.html", "{TITLE}", cfg.get("waifus", "title"));
+    replace(outdir + "/" + waifusdir + "/index.html", "{INFO}", cfg.get("waifus", "header"));
+    replace(outdir + "/" + waifusdir + "/index.html", "{CONTENT}", content);
+    replace(outdir + "/" + waifusdir + "/index.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
 
 if __name__ == "__main__":
     cfg = configparser.ConfigParser();
     cfg.read("settings.cfg");
     os.makedirs(cfg.get("output", "dir"), exist_ok=True);
-    generateindex();
-    generateblog();
-    generateportfolio();
-    generateanime();
+    generateindex(); # index
+    generateblog(); # blog with individual pages
+    generateportfolio(); # portfolio
+    generateanime(); # anime recommendations
+    generatewaifus(); # my waifus
