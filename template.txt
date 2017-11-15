@@ -10,23 +10,19 @@
 <link rel="icon" type="image/png" href="https://danieljon.es/favicon.png">
 <title>{TITLE}</title>
 <style type="text/css">
-body{/*background-color:#222; color: #eee;*/ margin-right: 20px; margin-left: 20px; font-family: Verdana}
-/*div{background-color: #1a1a1a;}*/
-/*a:link{color: #3F51B5;}*/
-/*a:visited{#3F51B5;}*/
+body{margin-right: 20px; margin-left: 20px; font-family: Verdana}
 img{max-width: 100%; max-height: 100%; overflow: hidden;}
 .middle{text-align: center;}
 .middiv{margin: auto; width: 80%;}
 #gentag{text-align: center; font-size: 75%;}
-h1,h2,h3,h4{padding-left: 5px; /*background-color: black !important; color: #e02020*/ !important;}
+h1,h2,h3,h4{padding-left: 5px; !important;}
 div.viewing{max-width: 70%; width: 100%; display: inline-block; margin: 10px;}
 div.cover{display:inline-block; vertical-align: top; padding-top: 28px; padding-left: 15px; padding-bottom: 20px;}
 </style>
 </head>
-
 <body> 
 <div class="middle">
-	<h1>danieljon.es</h1>free of native javascript, made with terminals in mind.<br><br>
+<h1>danieljon.es</h1>free of Javascript, minimal CSS.<br><br>
 <a href="https://danieljon.es">index</a> <a href="https://danieljon.es/blog">blog</a> <a href="https://danieljon.es/portfolio.html">portfolio</a> <br> <br>
 <a href="https://reddit.com/u/daniel_j-">reddit</a>
 <a href="https://steamcommunity.com/id/imnotstraightatall/">steam</a>
