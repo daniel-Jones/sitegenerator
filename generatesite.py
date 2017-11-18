@@ -38,13 +38,13 @@ def generateindex():
 
 def generatepagebar(currentpage, pagecount):
     print("generating page bar for {} total {}".format(currentpage, pagecount));
-    pages = "<div class='middle'>page ";
+    pages = "<div class='middle'>page <a href='1'><-</a> <a href='" + str(1 if currentpage == 1 else int(currentpage)-1) + "'>prev</a> ";
     for x in range(1, int(pagecount)+1):
         if x == int(currentpage):
             pages += "<strong><i><a href=" + str(x) + ">" + str(x) + "</a></i></strong> ";
         else: 
             pages += "<a href=" + str(x) + ">" + str(x) + "</a> ";
-    pages += "</div>";
+    pages += "<a href='" + str(1 if currentpage == pagecount else int(currentpage)+1) + "'>next</a> <a href='" + str(x) + "'>-></a></div>";
     return pages;
 
 def generateportfolio():
@@ -60,15 +60,12 @@ def generateportfolio():
     replace(outdir + "/portfolio.html", "{CONTENT}", content);
     replace(outdir + "/portfolio.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
 
-
-
 def deletefiles(ddir):
      # delete all blog files
     for the_file in os.listdir(ddir):
         file_path = os.path.join(ddir, the_file)
         if os.path.isfile(file_path):
             os.unlink(file_path);
-
 
 def generateblog():
     template = cfg.get("output", "template");
