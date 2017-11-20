@@ -8,7 +8,7 @@ I've created the setup.sh script, it will generate everything you need to get a 
 Run ./setup.sh once.
 then everytime you update the site run:
 python3 generatesite.py && cp -r output/* /var/www #or where ever your root dir is
-
+'''
 # settings.cfg?
 This file contains various settings you can change including the number of blog posts per page, titles, content locations, blog directory etc. Play with these if you want.
 
