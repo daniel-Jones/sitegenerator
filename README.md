@@ -9,6 +9,8 @@ Run ./setup.sh once.
 then everytime you update the site run:
 python3 generatesite.py && cp -r output/* /var/www #or where ever your root dir is
 ```
+Once ./setup.sh has been run once the directory named 'content' hosts all the website data. In it you'll find a directory for the blog in which each post is a .txt file counting up (1.txt is the first post). It's pretty self explanatory.
+
 # settings.cfg?
 This file contains various settings you can change including the number of blog posts per page, titles, content locations, blog directory etc. Play with these if you want.
 
