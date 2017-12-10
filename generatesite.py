@@ -71,10 +71,12 @@ def generateblog():
     template = cfg.get("output", "template");
     outdir = cfg.get("output", "dir");
     blogdir = cfg.get("blog", "dir");
+    directdir = cfg.get("blog", "direct");
     blogsrc = cfg.get("blog", "srcdir");
     perpage = cfg.get("blog", "perpage");
     print("generating {}/{}/ from directory /{}/final".format(outdir, blogdir, blogsrc));
     os.makedirs(outdir + "/" + blogdir, exist_ok=True);
+    os.makedirs(outdir + "/" + blogdir + "/" + directdir, exist_ok=True);
     os.makedirs(blogsrc + "/final", exist_ok=True);
    # number of blog posts
     postcount = len(glob.glob1(blogsrc, "*.txt"));
@@ -114,7 +116,7 @@ def generateblog():
             if count < postcount + 1:
                 with open(blogsrc + "/final/" + str(x) + ".txt") as contentfile:
                     content = contentfile.read();
-                    page += "<div id='" + str(total_count) + "'> <a href='" + str(cpage) + ".html#" + str(total_count) + "'>#" + str(total_count) + "</a>" + content + "</div><hr>";
+                    page += "<div id='" + str(total_count) + "'> <a href='" + directdir + "/" + str(total_count) + ".html'>direct link</a>" + content + "</div><hr>";
                     count += 1;
                     total_count -= 1;
         if cpage <= pagecount:
@@ -123,11 +125,19 @@ def generateblog():
             replace(outdir + "/" + blogdir + "/" + str(cpage) + ".html", "{CONTENT}", page);
         page = "";
         cpage += 1;
-    '''
-    for x in range(1, postcount + 1):
-        with open(blogsrc + "/" + str(x) + ".txt", "r") as t:
-            print(t.read());
-    '''
+    # generate /direct/ pages
+    for x in range(1, int(postcount) + 1):
+        copyfile(template, outdir + "/" + blogdir + "/" + directdir + "/" + str(x) + ".html");
+        replace(outdir + "/" + blogdir + "/" + directdir + "/" + str(x) + ".html", "{TITLE}", cfg.get("blog", "title"));
+        replace(outdir + "/" + blogdir + "/" + directdir + "/" + str(x) + ".html", "{INFO}", cfg.get("blog", "header"));
+        replace(outdir + "/" + blogdir + "/" + directdir + "/" + str(x) + ".html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+        with open(blogsrc + "/" + str(x) + ".txt") as contentfile:
+            content = contentfile.read();
+            replace(outdir + "/" + blogdir + "/" + directdir + "/" + str(x) + ".html", "{CONTENT}", content);
+            replace(outdir + "/" + blogdir + "/" + directdir + "/" + str(x) + ".html", "media/", "../media/");
+
+
+
 
 def generateanime():
     template = cfg.get("output", "template");

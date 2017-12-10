@@ -1,6 +1,7 @@
 # directories
 mkdir output/
 mkdir output/blog/
+mkdir output/blog/direct
 mkdir output/viewings/
 mkdir output/waifus/
 mkdir content/
