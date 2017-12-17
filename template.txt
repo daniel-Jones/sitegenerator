@@ -27,6 +27,6 @@ div.cover{display:inline-block; vertical-align: top; padding-top: 28px; padding-
 {INFO}
 </div>
 {CONTENT}
-<br> <br> <div id="gentag">page generated {TIME} using <a href="https://github.com/daniel-Jones/sitegenerator">sitegenerator</a></div>
+<br> <br> <div id="gentag">page generated {TIME} using <a href="https://git.danieljon.es/website/">sitegenerator</a></div>
 </body>
 </html>
