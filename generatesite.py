@@ -41,7 +41,7 @@ def generatepagebar(currentpage, pagecount):
     pages = "<div class='middle'> <a href='" + str(pagecount if int(currentpage) == 1 else int(currentpage)-1) + "'>prev</a> ";
     for x in range(1, int(pagecount)+1):
         if x == int(currentpage):
-            pages += "<strong><i><a href=" + str(x) + ">" + str(x) + "</a></i></strong> ";
+            pages += "<strong><i>" + str(x) + "</i></strong> ";
         else: 
             pages += "<a href=" + str(x) + ">" + str(x) + "</a> ";
     pages += "<a href='" + str(1 if currentpage == pagecount else int(currentpage)+1) + "'>next</a></div>";
