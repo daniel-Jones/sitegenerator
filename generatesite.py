@@ -139,19 +139,40 @@ def generateblog():
 
 
 
-def generateanime():
+def generateopinions():
     template = cfg.get("output", "template");
     outdir = cfg.get("output", "dir");
+    opinionssrc = cfg.get("opinions", "src");
+    opinionsdir = cfg.get("opinions", "dir");
+    print("generating {}/{}/index.html from {}".format(outdir, opinionsdir, opinionssrc));
+    copyfile(template, outdir + "/" + opinionsdir + "/index.html");
+    with open(opinionssrc, "r") as contentfile:
+        content = contentfile.read();
+    replace(outdir + "/" + opinionsdir + "/index.html", "{TITLE}", cfg.get("opinions", "title"));
+    replace(outdir + "/" + opinionsdir + "/index.html", "{INFO}", cfg.get("opinions", "header"));
+    replace(outdir + "/" + opinionsdir + "/index.html", "{CONTENT}", content);
+    replace(outdir + "/" + opinionsdir + "/index.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+    # anime
     animesrc = cfg.get("anime", "src");
-    animedir = cfg.get("anime", "dir");
-    print("generating {}/{}/index.html from {}".format(outdir, animedir, animesrc));
-    copyfile(template, outdir + "/" + animedir + "/index.html");
+    print("generating {}/{}/index.html from {}".format(outdir, opinionsdir, animesrc));
+    copyfile(template, outdir + "/" + opinionsdir + "/anime.html");
     with open(animesrc, "r") as contentfile:
         content = contentfile.read();
-    replace(outdir + "/" + animedir + "/index.html", "{TITLE}", cfg.get("anime", "title"));
-    replace(outdir + "/" + animedir + "/index.html", "{INFO}", cfg.get("anime", "header"));
-    replace(outdir + "/" + animedir + "/index.html", "{CONTENT}", content);
-    replace(outdir + "/" + animedir + "/index.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+    replace(outdir + "/" + opinionsdir + "/anime.html", "{TITLE}", cfg.get("anime", "title"));
+    replace(outdir + "/" + opinionsdir + "/anime.html", "{INFO}", cfg.get("anime", "header"));
+    replace(outdir + "/" + opinionsdir + "/anime.html", "{CONTENT}", content);
+    replace(outdir + "/" + opinionsdir + "/anime.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+    #everything else
+    everythingsrc = cfg.get("everything", "src");
+    print("generating {}/{}/index.html from {}".format(outdir, opinionsdir, everythingsrc));
+    copyfile(template, outdir + "/" + opinionsdir + "/everything.html");
+    with open(everythingsrc, "r") as contentfile:
+        content = contentfile.read();
+    replace(outdir + "/" + opinionsdir + "/everything.html", "{TITLE}", cfg.get("everything", "title"));
+    replace(outdir + "/" + opinionsdir + "/everything.html", "{INFO}", cfg.get("everything", "header"));
+    replace(outdir + "/" + opinionsdir + "/everything.html", "{CONTENT}", content);
+    replace(outdir + "/" + opinionsdir + "/everything.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+
 
 def generatewaifus():
     template = cfg.get("output", "template");
@@ -174,5 +195,5 @@ if __name__ == "__main__":
     generateindex(); # index
     generateblog(); # blog with individual pages
     generateportfolio(); # portfolio
-    generateanime(); # anime recommendations
+    generateopinions(); # opinions/anime
     generatewaifus(); # my waifus
