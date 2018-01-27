@@ -8,6 +8,7 @@ import configparser;
 import errno;
 import os;
 import glob;
+import sys;
 from shutil import copyfile;
 from tempfile import mkstemp;
 from shutil import move;
@@ -23,9 +24,11 @@ def replace(file_path, pattern, subst):
     remove(file_path);
     move(abs_path, file_path);
 
-def generateindex():
-    template = cfg.get("output", "template");
-    outdir = cfg.get("output", "dir");
+def generateindex(special):
+    if special:
+        outdir = specialoutput;
+    else:
+        outdir = cfg.get("output", "dir");
     indexsrc = cfg.get("index", "src");
     print("generating {}/index.html from {}".format(outdir, indexsrc));
     copyfile(template, outdir + "/index.html");
@@ -47,9 +50,11 @@ def generatepagebar(currentpage, pagecount):
     pages += "<a href='" + str(1 if currentpage == pagecount else int(currentpage)+1) + "'>next</a></div>";
     return pages;
 
-def generateportfolio():
-    template = cfg.get("output", "template");
-    outdir = cfg.get("output", "dir");
+def generateportfolio(special):
+    if special:
+        outdir = specialoutput;
+    else:
+       outdir = cfg.get("output", "dir");
     portfoliosrc = cfg.get("portfolio", "src");
     print("generating {}/portfolio.html from {}".format(outdir, portfoliosrc));
     copyfile(template, outdir + "/portfolio.html");
@@ -67,9 +72,11 @@ def deletefiles(ddir):
         if os.path.isfile(file_path):
             os.unlink(file_path);
 
-def generateblog():
-    template = cfg.get("output", "template");
-    outdir = cfg.get("output", "dir");
+def generateblog(special):
+    if special:
+        outdir = specialoutput;
+    else:
+        outdir = cfg.get("output", "dir");
     blogdir = cfg.get("blog", "dir");
     directdir = cfg.get("blog", "direct");
     blogsrc = cfg.get("blog", "srcdir");
@@ -139,11 +146,14 @@ def generateblog():
 
 
 
-def generateopinions():
-    template = cfg.get("output", "template");
-    outdir = cfg.get("output", "dir");
+def generateopinions(special):
+    if special:
+        outdir = specialoutput;
+    else:
+        outdir = cfg.get("output", "dir");
     opinionssrc = cfg.get("opinions", "src");
     opinionsdir = cfg.get("opinions", "dir");
+    os.makedirs(outdir + "/" + opinionsdir, exist_ok=True);
     print("generating {}/{}/index.html from {}".format(outdir, opinionsdir, opinionssrc));
     copyfile(template, outdir + "/" + opinionsdir + "/index.html");
     with open(opinionssrc, "r") as contentfile:
@@ -174,11 +184,14 @@ def generateopinions():
     replace(outdir + "/" + opinionsdir + "/everything.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
 
 
-def generatewaifus():
-    template = cfg.get("output", "template");
-    outdir = cfg.get("output", "dir");
+def generatewaifus(special):
+    if special:
+        outdir = specialoutput;
+    else:
+        outdir = cfg.get("output", "dir");
     waifussrc = cfg.get("waifus", "src");
     waifusdir = cfg.get("waifus", "dir");
+    os.makedirs(outdir + "/" + waifusdir, exist_ok=True);
     print("generating {}/{}/index.html from {}".format(outdir, waifusdir, waifussrc));
     copyfile(template, outdir + "/" + waifusdir + "/index.html");
     with open(waifussrc, "r") as contentfile:
@@ -191,9 +204,17 @@ def generatewaifus():
 if __name__ == "__main__":
     cfg = configparser.ConfigParser();
     cfg.read("settings.cfg");
-    os.makedirs(cfg.get("output", "dir"), exist_ok=True);
-    generateindex(); # index
-    generateblog(); # blog with individual pages
-    generateportfolio(); # portfolio
-    generateopinions(); # opinions/anime
-    generatewaifus(); # my waifus
+    orgoutdir = cfg.get("output", "dir");
+    if len(sys.argv) > 2:
+        template = sys.argv[1];
+        special = True; # if set output will be output/sys.argv[2]
+        specialoutput = orgoutdir + "/" + sys.argv[2];
+    else:
+        special = False;
+        template = cfg.get("output", "template");
+    os.makedirs(orgoutdir, exist_ok=True);
+    generateindex(special); # index
+    generateblog(special); # blog with individual pages
+    generateportfolio(special); # portfolio
+    generateopinions(special); # opinions/anime
+    generatewaifus(special); # my waifus
