@@ -24,7 +24,7 @@ div.cover{display:inline-block; vertical-align: top; padding-top: 28px; padding-
 </head>
 <body> 
 <div class="middle">
-<h1>danieljon.es</h1>free of Javascript, minimal CSS.<br><br>
+<h1>danieljon.es</h1>
 <a href="/">index</a> <a href="/blog">blog</a> <a href="/portfolio.html">projects</a> <a href="/opinions">opinions</a> <a href="https://git.danieljon.es">git</a>
 {INFO}
 </div>
