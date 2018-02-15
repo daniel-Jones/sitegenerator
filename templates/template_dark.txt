@@ -10,7 +10,7 @@
 <link rel="icon" type="image/png" href="https://danieljon.es/favicon.png">
 <title>{TITLE}</title>
 <style>
-body{background-color:#222; color: #eee; margin-right: 60px; margin-left: 60px; font-family: Verdana}
+body{background-color:#222; color: #eee; margin-right: 5%; margin-left: 5%; font-family: Verdana}
 div{background-color: #202020 !important}
 a:link{color: #3F51B5;}
 a:visited{#3F51B5;}
