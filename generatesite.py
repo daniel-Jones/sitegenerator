@@ -201,6 +201,23 @@ def generatewaifus(special):
     replace(outdir + "/" + waifusdir + "/index.html", "{CONTENT}", content);
     replace(outdir + "/" + waifusdir + "/index.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
 
+def generateinteresting(special):
+    if special:
+        outdir = specialoutput;
+    else:
+       outdir = cfg.get("output", "dir");
+    portfoliosrc = cfg.get("interesting", "src");
+    print("generating {}/interesting.html from {}".format(outdir, portfoliosrc));
+    copyfile(template, outdir + "/interesting.html");
+    with open(portfoliosrc, "r") as contentfile:
+        content = contentfile.read();
+    replace(outdir + "/interesting.html", "{TITLE}", cfg.get("interesting", "title"));
+    replace(outdir + "/interesting.html", "{INFO}", cfg.get("interesting", "header"));
+    replace(outdir + "/interesting.html", "{CONTENT}", content);
+    replace(outdir + "/interesting.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+
+
+
 if __name__ == "__main__":
     cfg = configparser.ConfigParser();
     cfg.read("settings.cfg");
@@ -218,3 +235,4 @@ if __name__ == "__main__":
     generateportfolio(special); # portfolio
     generateopinions(special); # opinions/anime
     generatewaifus(special); # my waifus
+    generateinteresting(special); # interesting stuff
