@@ -27,3 +27,5 @@ echo "<div class='middiv'><div class='cover'><img src='https://danieljon.es/view
 echo "Opinions on things. <br><br> <a href='anime.html'>anime</a> & <a href='everything.html'>everything else</a>." > content/opinions/index.txt
 #make content/opinions/everything.txt
 echo "Put your own stuff here." > content/opinions/everything.txt
+#make content/interesting.txt
+echo "interesting things on this page." > content/interesting.txt
