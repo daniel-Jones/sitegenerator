@@ -30,7 +30,7 @@ div.cover{display:inline-block; vertical-align: top; padding-top: 28px; padding-
 <div class="middle">
 <h1>danieljon.es</h1>
 <a href="https://danieljon.es">normal</a> <a href="https://light.danieljon.es">light</a> <a href="https://dark.danieljon.es">dark</a> <a href="https://nocss.danieljon.es">no css</a> <br>
-<a href="/">index</a> <a href="/blog">blog</a> <a href="/portfolio.html">projects</a> <a href="/opinions">opinions</a> <a href="/interesting.html">interesting</a> <a href="https://git.danieljon.es">git</a>
+<a href="/">index</a> <a href="/blog">blog</a> <a href="/opinions">opinions</a> <a href="/interesting.html">interesting</a> <a href="https://git.danieljon.es">git</a>
 {INFO}
 </div>
 <div class="content">
