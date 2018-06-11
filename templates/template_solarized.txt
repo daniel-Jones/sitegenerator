@@ -10,22 +10,27 @@
 <link rel="icon" type="image/png" href="https://danieljon.es/favicon.png">
 <title>{TITLE}</title>
 <style>
-body{margin-right: 5%; margin-left: 5%; font-family: Verdana}
+*{border-color: #657b83;}
+a{color: #268bd2;}
+a:visited{color: #6c71c4;}
+hr{border: none; background-color: #094352; color: #094352; height: 2px;}
+body{background-color: #002b36; color: #839496; margin-right: 5%; margin-left: 5%; font-family: Verdana}
 img{max-width: 100%; max-height: 100%; overflow: hidden;}
-pre{padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; background: #d9d9ce; overflow: auto;}
+pre{padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; background: #073642; overflow: auto;}
 .middle{text-align: center;}
 .middiv{margin: auto; width: 80%;}
 #gentag{text-align: center; font-size: 75%;}
 h1,h2,h3,h4{padding-left: 5px;}
 div.viewing{max-width: 70%; width: 100%; display: inline-block; margin: 10px;}
 div.cover{display:inline-block; vertical-align: top; padding-top: 28px; padding-left: 15px; padding-bottom: 20px;}
-.content{border: 1px solid black; border-radius: 5px; padding-top: 15px; padding-bottom: 15px; padding-left: 15px; padding-right: 15px; background: #eeeeec;}
+.content{border: 2px solid; border-color: #073642; border-radius: 5px; padding-top: 15px; padding-bottom: 15px; padding-left: 15px; padding-right: 15px;}
 </style>
 </head>
 <body> 
 <div class="middle">
 <h1>danieljon.es</h1>
 <a href="https://danieljon.es">normal</a> <a href="https://solarized.danieljon.es">solarized</a> <a href="https://dark.danieljon.es">dark</a> <a href="https://nocss.danieljon.es">no css</a> <br>
+
 <a href="/">index</a> <a href="/blog">blog</a> <a href="/opinions">opinions</a> <a href="/interesting.html">interesting</a> <a href="https://git.danieljon.es">git</a>
 {INFO}
 </div>
@@ -36,3 +41,4 @@ div.cover{display:inline-block; vertical-align: top; padding-top: 28px; padding-
 <br> <div id="gentag">page generated {TIME} using <a href="https://git.danieljon.es/website/">sitegenerator</a></div>
 </body>
 </html>
+
