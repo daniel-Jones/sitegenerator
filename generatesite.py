@@ -259,6 +259,7 @@ def generatedislikes(special):
     replace(outdir + "/dislike.html", "{TITLE}", cfg.get("dislike", "title"));
     replace(outdir + "/dislike.html", "{INFO}", cfg.get("dislike", "header"));
     replace(outdir + "/dislike.html", "{CONTENT}", content);
+    replace(outdir + "/dislike.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
 
 if __name__ == "__main__":
     cfg = configparser.ConfigParser();
