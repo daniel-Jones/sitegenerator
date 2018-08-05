@@ -29,3 +29,7 @@ echo "Opinions on things. <br><br> <a href='anime.html'>anime</a> & <a href='eve
 echo "Put your own stuff here." > content/opinions/everything.txt
 #make content/interesting.txt
 echo "interesting things on this page." > content/interesting.txt
+#make content/like.txt
+echo "things I like here." > content/like.txt
+#make content/dislike.txt
+echo "things I dislike here." > content/dislike.txt

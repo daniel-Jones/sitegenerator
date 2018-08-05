@@ -220,17 +220,45 @@ def generateinteresting(special):
         outdir = specialoutput;
     else:
        outdir = cfg.get("output", "dir");
-    portfoliosrc = cfg.get("interesting", "src");
-    print("generating {}/interesting.html from {}".format(outdir, portfoliosrc));
+    interestingsrc = cfg.get("interesting", "src");
+    print("generating {}/interesting.html from {}".format(outdir, interestingsrc));
     copyfile(template, outdir + "/interesting.html");
-    with open(portfoliosrc, "r") as contentfile:
+    with open(interestingsrc, "r") as contentfile:
         content = contentfile.read();
     replace(outdir + "/interesting.html", "{TITLE}", cfg.get("interesting", "title"));
     replace(outdir + "/interesting.html", "{INFO}", cfg.get("interesting", "header"));
     replace(outdir + "/interesting.html", "{CONTENT}", content);
     replace(outdir + "/interesting.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
 
+def generatelikes(special):
+    if special:
+        outdir = specialoutput;
+    else:
+       outdir = cfg.get("output", "dir");
+    likesrc = cfg.get("like", "src");
+    print("generating {}/like.html from {}".format(outdir, likesrc));
+    copyfile(template, outdir + "/like.html");
+    with open(likesrc, "r") as contentfile:
+        content = contentfile.read();
+    replace(outdir + "/like.html", "{TITLE}", cfg.get("like", "title"));
+    replace(outdir + "/like.html", "{INFO}", cfg.get("like", "header"));
+    replace(outdir + "/like.html", "{CONTENT}", content);
+    replace(outdir + "/like.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
 
+
+def generatedislikes(special):
+    if special:
+        outdir = specialoutput;
+    else:
+       outdir = cfg.get("output", "dir");
+    dislikesrc = cfg.get("dislike", "src");
+    print("generating {}/dislike.html from {}".format(outdir, dislikesrc));
+    copyfile(template, outdir + "/dislike.html");
+    with open(dislikesrc, "r") as contentfile:
+        content = contentfile.read();
+    replace(outdir + "/dislike.html", "{TITLE}", cfg.get("dislike", "title"));
+    replace(outdir + "/dislike.html", "{INFO}", cfg.get("dislike", "header"));
+    replace(outdir + "/dislike.html", "{CONTENT}", content);
 
 if __name__ == "__main__":
     cfg = configparser.ConfigParser();
@@ -250,3 +278,5 @@ if __name__ == "__main__":
     generateopinions(special); # opinions/anime
     generatewaifus(special); # my waifus
     generateinteresting(special); # interesting stuff
+    generatelikes(special); # likes
+    generatedislikes(special); #dislikes
