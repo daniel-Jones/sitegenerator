@@ -33,7 +33,7 @@ div.cover{display:inline-block; vertical-align: top; padding-top: 28px; padding-
 <div class="content">
 {CONTENT}
 </div>
-<br><br> <div class="middle"> <img src="https://danieljon.es/linuxfreak.png"> <br> <a href="https://gitlab.com/ubunchu-translators/ubunchu">source</a> </div>
+<br><br> <div class="middle"> <img src="https://danieljon.es/linuxfreak.png"> <br> <a id="gentag" href="https://gitlab.com/ubunchu-translators/ubunchu">source</a> </div>
 <br> <div id="gentag">page generated {TIME} using <a href="https://git.danieljon.es/website/">sitegenerator</a></div>
 <!-- <a href="https://danieljon.es/girlslasttour"><img src="https://danieljon.es/media/chito.png" style="position: fixed; right: 0px; bottom: -0px; width: 80px; height: auto;"></a> -->
 </body>
