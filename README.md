@@ -27,4 +27,3 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([A-Za-z0-9-]+)/?$ $1.html [NC,QSA]
 DirectoryIndex 1.html
 ```
-
