@@ -13,6 +13,12 @@ rsync -r /var/www/blog/media /var/www/dark/blog/
 rsync -r /var/www/blog/media /var/www/light/blog/
 rsync -r /var/www/blog/media /var/www/nocss/blog/
 rsync -r /var/www/blog/media /var/www/solarized/blog/
+#posts
+rsync -r /var/www/posts/media /var/www/kawaii/posts/
+rsync -r /var/www/posts/media /var/www/dark/posts/
+rsync -r /var/www/posts/media /var/www/light/posts/
+rsync -r /var/www/posts/media /var/www/nocss/posts/
+rsync -r /var/www/posts/media /var/www/solarized/posts/
 
 # waifu media directory
 rsync -r /var/www/waifus/media /var/www/kawaii/waifus/
