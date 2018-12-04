@@ -51,7 +51,7 @@ def generateindex(special):
     replace(outdir + "/index.html", "{TITLE}", cfg.get("index", "title"));
     replace(outdir + "/index.html", "{INFO}", cfg.get("index", "header"));
     replace(outdir + "/index.html", "{CONTENT}", content);
-    replace(outdir + "/index.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+    replace(outdir + "/index.html", "{TIME}", strftime("%d-%m-%Y", gmtime()));
 
 def generatepagebar(currentpage, pagecount):
     print("generating page bar for {} total {}".format(currentpage, pagecount));
@@ -77,7 +77,7 @@ def generateportfolio(special):
     replace(outdir + "/portfolio.html", "{TITLE}", cfg.get("portfolio", "title"));
     replace(outdir + "/portfolio.html", "{INFO}", cfg.get("portfolio", "header"));
     replace(outdir + "/portfolio.html", "{CONTENT}", content);
-    replace(outdir + "/portfolio.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+    replace(outdir + "/portfolio.html", "{TIME}", strftime("%d-%m-%Y", gmtime()));
 
 def deletefiles(ddir):
      # delete all blog files
@@ -125,7 +125,7 @@ def generateblog(special):
             content = contentfile.read().replace('\n', '');
         replace(outdir + "/" + blogdir + "/" + str(x) + ".html", "{TITLE}", cfg.get("blog", "title"));
         replace(outdir + "/" + blogdir + "/" + str(x) + ".html", "{INFO}", cfg.get("blog", "header"));
-        replace(outdir + "/" + blogdir + "/" + str(x) + ".html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+        replace(outdir + "/" + blogdir + "/" + str(x) + ".html", "{TIME}", strftime("%d-%m-%Y", gmtime()));
     # place blog posts into their pages
     count = 1;
     cpage = 1;
@@ -151,7 +151,7 @@ def generateblog(special):
         copyfile(template, outdir + "/" + blogdir + "/" + directdir + "/" + str(x) + ".html");
         replace(outdir + "/" + blogdir + "/" + directdir + "/" + str(x) + ".html", "{TITLE}", cfg.get("blog", "title"));
         replace(outdir + "/" + blogdir + "/" + directdir + "/" + str(x) + ".html", "{INFO}", cfg.get("blog", "header"));
-        replace(outdir + "/" + blogdir + "/" + directdir + "/" + str(x) + ".html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+        replace(outdir + "/" + blogdir + "/" + directdir + "/" + str(x) + ".html", "{TIME}", strftime("%d-%m-%Y %H:%M:%S", gmtime()));
         with open(blogsrc + "/" + str(x) + ".txt") as contentfile:
             content = contentfile.read();
             replace(outdir + "/" + blogdir + "/" + directdir + "/" + str(x) + ".html", "{CONTENT}", content);
@@ -175,7 +175,7 @@ def generateopinions(special):
     replace(outdir + "/" + opinionsdir + "/index.html", "{TITLE}", cfg.get("opinions", "title"));
     replace(outdir + "/" + opinionsdir + "/index.html", "{INFO}", cfg.get("opinions", "header"));
     replace(outdir + "/" + opinionsdir + "/index.html", "{CONTENT}", content);
-    replace(outdir + "/" + opinionsdir + "/index.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+    replace(outdir + "/" + opinionsdir + "/index.html", "{TIME}", strftime("%d-%m-%Y", gmtime()));
     # anime
     animesrc = cfg.get("anime", "src");
     print("generating {}/{}/index.html from {}".format(outdir, opinionsdir, animesrc));
@@ -185,7 +185,7 @@ def generateopinions(special):
     replace(outdir + "/" + opinionsdir + "/anime.html", "{TITLE}", cfg.get("anime", "title"));
     replace(outdir + "/" + opinionsdir + "/anime.html", "{INFO}", cfg.get("anime", "header"));
     replace(outdir + "/" + opinionsdir + "/anime.html", "{CONTENT}", content);
-    replace(outdir + "/" + opinionsdir + "/anime.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+    replace(outdir + "/" + opinionsdir + "/anime.html", "{TIME}", strftime("%d-%m-%Y", gmtime()));
     #everything else
     everythingsrc = cfg.get("everything", "src");
     print("generating {}/{}/index.html from {}".format(outdir, opinionsdir, everythingsrc));
@@ -195,7 +195,7 @@ def generateopinions(special):
     replace(outdir + "/" + opinionsdir + "/everything.html", "{TITLE}", cfg.get("everything", "title"));
     replace(outdir + "/" + opinionsdir + "/everything.html", "{INFO}", cfg.get("everything", "header"));
     replace(outdir + "/" + opinionsdir + "/everything.html", "{CONTENT}", content);
-    replace(outdir + "/" + opinionsdir + "/everything.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+    replace(outdir + "/" + opinionsdir + "/everything.html", "{TIME}", strftime("%d-%m-%Y", gmtime()));
 
 
 def generatewaifus(special):
@@ -213,7 +213,7 @@ def generatewaifus(special):
     replace(outdir + "/" + waifusdir + "/index.html", "{TITLE}", cfg.get("waifus", "title"));
     replace(outdir + "/" + waifusdir + "/index.html", "{INFO}", cfg.get("waifus", "header"));
     replace(outdir + "/" + waifusdir + "/index.html", "{CONTENT}", content);
-    replace(outdir + "/" + waifusdir + "/index.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+    replace(outdir + "/" + waifusdir + "/index.html", "{TIME}", strftime("%d-%m-%Y", gmtime()));
 
 def generateinteresting(special):
     if special:
@@ -228,7 +228,7 @@ def generateinteresting(special):
     replace(outdir + "/interesting.html", "{TITLE}", cfg.get("interesting", "title"));
     replace(outdir + "/interesting.html", "{INFO}", cfg.get("interesting", "header"));
     replace(outdir + "/interesting.html", "{CONTENT}", content);
-    replace(outdir + "/interesting.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+    replace(outdir + "/interesting.html", "{TIME}", strftime("%d-%m-%Y", gmtime()));
 
 def generatelikes(special):
     if special:
@@ -243,7 +243,7 @@ def generatelikes(special):
     replace(outdir + "/like.html", "{TITLE}", cfg.get("like", "title"));
     replace(outdir + "/like.html", "{INFO}", cfg.get("like", "header"));
     replace(outdir + "/like.html", "{CONTENT}", content);
-    replace(outdir + "/like.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+    replace(outdir + "/like.html", "{TIME}", strftime("%d-%m-%Y", gmtime()));
 
 
 def generatedislikes(special):
@@ -259,7 +259,7 @@ def generatedislikes(special):
     replace(outdir + "/dislike.html", "{TITLE}", cfg.get("dislike", "title"));
     replace(outdir + "/dislike.html", "{INFO}", cfg.get("dislike", "header"));
     replace(outdir + "/dislike.html", "{CONTENT}", content);
-    replace(outdir + "/dislike.html", "{TIME}", strftime("%Y-%m-%d %H:%M:%S", gmtime()));
+    replace(outdir + "/dislike.html", "{TIME}", strftime("%d-%m-%Y", gmtime()));
 
 if __name__ == "__main__":
     cfg = configparser.ConfigParser();
