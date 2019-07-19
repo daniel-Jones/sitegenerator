@@ -34,6 +34,7 @@ div.cover{display:inline-block; vertical-align: top; padding-top: 28px; padding-
 {CONTENT}
 </div>
 <!-- <br><br> <div class="middle"> <img src="https://danieljon.es/linuxfreak.png"> <br> <a id="gentag" href="https://gitlab.com/ubunchu-translators/ubunchu">source</a> </div> -->
+<br><br> <div class="middle"> <img src="https://static.fsf.org/nosvn/associate/crm/3066626.png" alt="FSF member"></div>
 <br> <div id="gentag">page generated {TIME} using <a href="https://git.danieljon.es/website/">sitegenerator</a></div>
 <a href="https://danieljon.es/cirno"><img src="https://danieljon.es/media/do_you_want_to_talk.png" style="position: fixed; right: 0px; bottom: -0px; width: 10%; height: auto;"></a>
 </body>
