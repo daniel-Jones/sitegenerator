@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''
-Copyright Daniel Jones 2017-2018
+Copyright Daniel Jones daniel@danieljon.es
 
 script to auto-generate my static website/blog at https://danieljon.es
 
@@ -137,7 +137,7 @@ def generateblog(special):
             if count < postcount + 1:
                 with open(blogsrc + "/final/" + str(x) + ".txt") as contentfile:
                     content = contentfile.read();
-                    page += "<div id='" + str(total_count) + "'> <a href='" + directdir + "/" + str(total_count) + "'>direct link</a>" + content + "</div><hr>";
+                    page += "<div id='" + str(total_count) + "'> post #" + str((postcount + 1) - x) + "<br><a href='" + directdir + "/" + str(total_count) + "'>direct link</a>" + content + "</div><hr>";
                     count += 1;
                     total_count -= 1;
         if cpage <= pagecount:
