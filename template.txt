@@ -27,7 +27,7 @@ div.cover{display:inline-block; vertical-align: top; padding-top: 28px; padding-
 <body> 
 <div class="middle">
 <h1>danieljon.es</h1>
-<a href="/">index</a> <a href="/posts">posts</a> <a href="/opinions">opinions</a> <a href="/like.html">likes</a> <a href="/dislike.html">dislikes</a> <a href="/interesting.html">interesting</a> <a href="https://git.danieljon.es">cgit</a> <br>
+<a href="/">index</a> <a href="/posts">posts</a> <a href="/opinions">opinions</a> <a href="/like.html">likes</a> <a href="/dislike.html">dislikes</a> <a href="/interesting.html">interesting</a> <a href="https://git.danieljon.es">cgit</a> <a href="https://github.com/daniel-Jones/">github</a> <br>
 
 {INFO}
 </div>
