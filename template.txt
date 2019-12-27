@@ -12,11 +12,11 @@
 <title>{TITLE}</title>
 <style>
 @font-face
-	{
+{
 	  font-family: Agave-Regular;
 	    src: url('/media/Agave-Regular.ttf');
 }
-body{font-family: "Agave-Regular"; /*background: #aaaaaa;*/}
+body{font-family: "Agave-Regular"; background: #d2d2d2;}
 img{max-width: 100%; max-height: 100%; overflow: hidden;}
 pre{overflow: auto; border-width: 1px; border-style: solid; border-color: black}
 .middle{text-align: center;}
